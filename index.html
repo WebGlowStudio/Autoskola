@@ -8,6 +8,9 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="WebGlow Studio">
   <meta name="theme-color" content="#0B1F3A">
+    <script>
+      (function(){try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro-pending");window.setTimeout(function(){document.documentElement.classList.remove("intro-pending");},3200);}}catch(e){}})();
+    </script>
   <link rel="canonical" href="https://webglowstudio.github.io/Autoskola/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
@@ -188,14 +191,86 @@
     .band{background:var(--navy);color:#fff}
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
     .reveal.in{opacity:1;transform:none}
+    html.intro-pending{background:#0B1F3A}
+    html.intro-pending,html.intro-pending body{overflow:hidden}
+    html.intro-pending body::before{content:"";position:fixed;inset:0;background:#0B1F3A;z-index:9998;pointer-events:none}
+    .volan-intro{position:fixed;inset:0;z-index:9999;background:var(--navy);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+    .volan-intro[hidden]{display:none!important}
+    .volan-intro.is-leaving{animation:volanIntroFade .5s ease forwards;pointer-events:none}
+    @keyframes volanIntroFade{to{opacity:0}}
+    .volan-intro-scene{position:relative;width:100%;height:clamp(120px,28vw,220px)}
+    .volan-intro-road{position:absolute;left:0;right:0;top:58%;height:70px;transform:translateY(-50%);background:linear-gradient(to bottom,transparent 0 28%,rgba(7,20,34,.7) 28%,rgba(7,20,34,.7) 72%,transparent 72%)}
+    .volan-intro-road::after{content:"";position:absolute;left:-60px;right:0;top:50%;height:5px;margin-top:-2px;background:repeating-linear-gradient(to right,#F5C518 0 26px,transparent 26px 46px);animation:volanRoad .4s linear infinite;pointer-events:none}
+    @keyframes volanRoad{to{transform:translateX(-46px)}}
+    .volan-intro-car{position:absolute;left:0;top:50%;width:clamp(132px,32vw,210px);z-index:2;animation:volanDrive 1.55s cubic-bezier(.3,0,.7,1) forwards;will-change:transform;filter:drop-shadow(0 10px 12px rgba(0,0,0,.35))}
+    @keyframes volanDrive{from{transform:translate(-130%,-76%)}to{transform:translate(100vw,-76%)}}
+    .volan-intro-car-bob{animation:volanBob .28s ease-in-out infinite alternate}
+    @keyframes volanBob{to{transform:translateY(-3px)}}
+    .volan-intro-wheel{animation:volanSpin .35s linear infinite;transform-origin:0 0}
+    @keyframes volanSpin{to{transform:rotate(360deg)}}
+    .volan-intro-hint{position:absolute;left:0;right:0;bottom:clamp(16px,6vh,40px);text-align:center;color:rgba(245,197,24,.8);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;font-family:var(--sans)}
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       .reveal{opacity:1;transform:none;transition:none}
       .btn:hover,.cat:hover{transform:none}
+      .volan-intro,html.intro-pending body::before{display:none!important}
+      html.intro-pending,html.intro-pending body{overflow:auto}
     }
   </style>
 </head>
 <body>
+
+  <div id="volan-intro" class="volan-intro" hidden aria-hidden="true">
+    <div class="volan-intro-scene">
+      <div class="volan-intro-road"></div>
+      <div class="volan-intro-car">
+        <div class="volan-intro-car-bob">
+          <svg viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+              <linearGradient id="volanIntroBody" x1="0" y1="30" x2="0" y2="110" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFE56A"/>
+                <stop offset=".55" stop-color="#F5C518"/>
+                <stop offset="1" stop-color="#D4A80A"/>
+              </linearGradient>
+              <linearGradient id="volanIntroGlass" x1="0" y1="34" x2="0" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#C5D6EC"/>
+                <stop offset="1" stop-color="#1A3E6C"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="122" cy="120" rx="90" ry="7" fill="#000" opacity=".3"/>
+            <rect x="132" y="16" width="5" height="22" rx="1.2" fill="#E8EEF6"/>
+            <rect x="117" y="2" width="36" height="32" rx="4" fill="#fff" stroke="#0B1F3A" stroke-width="2.4"/>
+            <path d="M126.5 9h6.8v11.2h10.2v6.6H126.5z" fill="#C8102E"/>
+            <path fill="url(#volanIntroBody)" stroke="#0B1F3A" stroke-width="2.2" stroke-linejoin="round" d="M30 78c0-7 8-11 20-11h24l12-24c4-7 12-10 22-10h46c14 0 22 6 28 16l20 18h14c10 0 14 6 14 14v12c0 8-7 12-16 12H36c-10 0-18-4-18-13V86c0-5 5-8 12-8z"/>
+            <path fill="#0B1F3A" d="M20 92h200c0 6-6 10-14 10H36c-9 0-16-3-16-10z"/>
+            <rect x="28" y="91" width="184" height="2.2" fill="#FFE56A" opacity=".85"/>
+            <path fill="url(#volanIntroGlass)" stroke="#0B1F3A" stroke-width="1.6" d="M76 44h36v20H70z"/>
+            <path fill="url(#volanIntroGlass)" stroke="#0B1F3A" stroke-width="1.6" d="M120 44h32l22 20H120z"/>
+            <rect x="112" y="42" width="8" height="24" fill="#0B1F3A"/>
+            <ellipse cx="214" cy="78" rx="7" ry="6" fill="#FFF4C2" stroke="#0B1F3A" stroke-width="1.2"/>
+            <rect x="20" y="72" width="8" height="10" rx="2" fill="#FF8A00" stroke="#0B1F3A" stroke-width="1"/>
+            <g transform="translate(64 104)">
+              <g class="volan-intro-wheel">
+                <circle r="16" fill="#161616"/>
+                <circle r="10" fill="#2a2a2a"/>
+                <circle r="4" fill="#F5C518"/>
+                <path d="M0-11v5M0 6v5M-11 0h5M6 0h5" stroke="#F5C518" stroke-width="2" stroke-linecap="round"/>
+              </g>
+            </g>
+            <g transform="translate(176 104)">
+              <g class="volan-intro-wheel">
+                <circle r="16" fill="#161616"/>
+                <circle r="10" fill="#2a2a2a"/>
+                <circle r="4" fill="#F5C518"/>
+                <path d="M0-11v5M0 6v5M-11 0h5M6 0h5" stroke="#F5C518" stroke-width="2" stroke-linecap="round"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <p class="volan-intro-hint">Dodirnite da preskočite</p>
+  </div>
   <a class="skip" href="#sadrzaj">Preskočite na sadržaj</a>
   <header>
     <div class="wrap nav">
@@ -551,6 +626,42 @@
 
   <script>
   (function(){
+    var intro=document.getElementById("volan-intro");
+    var reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var clearPending=function(){document.documentElement.classList.remove("intro-pending");};
+    if(!intro || reduceMotion){
+      clearPending();
+      if(intro && intro.parentNode) intro.parentNode.removeChild(intro);
+    } else {
+      var introDone=false;
+      var cleanupIntro=function(){
+        clearPending();
+        if(intro && intro.parentNode) intro.parentNode.removeChild(intro);
+      };
+      var finishIntro=function(){
+        if(introDone) return;
+        introDone=true;
+        intro.classList.add("is-leaving");
+        window.setTimeout(cleanupIntro, 500);
+      };
+      intro.removeAttribute("hidden");
+      intro.addEventListener("pointerdown", function(e){e.preventDefault();finishIntro();});
+      document.addEventListener("keydown", function onIntroKey(e){
+        if(e.key==="Escape" || e.key==="Esc"){
+          finishIntro();
+          document.removeEventListener("keydown", onIntroKey);
+        }
+      });
+      var car=intro.querySelector(".volan-intro-car");
+      if(car){
+        car.addEventListener("animationend", function(e){
+          if(e.animationName==="volanDrive") finishIntro();
+        });
+      }
+      window.setTimeout(finishIntro, 2200);
+      window.setTimeout(cleanupIntro, 3000);
+    }
+
     var header=document.querySelector("header");
     var toggle=document.querySelector(".nav-toggle");
     if(toggle){
