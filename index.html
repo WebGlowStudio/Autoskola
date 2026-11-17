@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Auto-škola Volan — kategorije B, A i C u Beogradu</title>
+  <meta name="description" content="Auto-škola Volan u Beogradu: obuka za kategorije B, A i C, teorija, prva pomoć, vožnja i prijava ispita. Demo sajt izradio WebGlow Studio.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="WebGlow Studio">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="canonical" href="https://webglowstudio.github.io/Autoskola/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sr_RS">
+  <meta property="og:site_name" content="Auto-škola Volan">
+  <meta property="og:title" content="Auto-škola Volan — kategorije B, A i C u Beogradu">
+  <meta property="og:description" content="Obuka za vozače: teorija, prva pomoć, vožnja i ispit. Kategorije B, A i C. Demo sajt izradio WebGlow Studio.">
+  <meta property="og:url" content="https://webglowstudio.github.io/Autoskola/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auto-škola Volan — kategorije B, A i C u Beogradu">
+  <meta name="twitter:description" content="Obuka za vozače u Beogradu. Demo sajt izradio WebGlow Studio.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Auto-škola Volan",
+    "description": "Auto-škola u Beogradu za kategorije B, A i C.",
+    "url": "https://webglowstudio.github.io/Autoskola/",
+    "image": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
+    "telephone": "+381605550456",
+    "email": "info@autoskolavolan.rs",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bulevar Zorana Đinđića 12",
+      "addressLocality": "Beograd",
+      "addressCountry": "RS"
+    },
+    "areaServed": "Beograd"
+  }
+  </script>
+  <style>
+    :root{
+      --navy:#0B1F3A;
+      --navy-mid:#102A4C;
+      --navy-soft:#163A66;
+      --yellow:#F5C518;
+      --orange:#FF8A00;
+      --ink:#10151C;
+      --muted:#5B6573;
+      --paper:#F6F4EF;
+      --white:#fff;
+      --line:rgba(11,31,58,.12);
+      --serif:"Playfair Display", Georgia, serif;
+      --sans:"Jost", system-ui, sans-serif;
+      --gutter:clamp(18px,5vw,72px);
+      --max:1160px;
+      --header:76px;
+      --radius:20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:hidden}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit;color:inherit}
+    :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .wrap{width:min(100%,var(--max));margin:0 auto;padding:0 var(--gutter)}
+    .serif,h1,h2,h3{font-family:var(--serif);font-style:normal;font-synthesis:none;letter-spacing:-.02em}
+    em,i{font-style:normal}
+    .skip{position:absolute;left:-999px;top:8px;background:var(--yellow);color:var(--navy);padding:8px 14px;z-index:80;font-weight:600}
+    .skip:focus{left:8px}
+    .eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+    .lede{color:var(--muted);font-size:1.05rem;max-width:38em}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,31,58,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.15);color:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:var(--header);gap:16px}
+    .logo{display:flex;align-items:center;gap:10px;color:#fff}
+    .logo svg{width:36px;height:36px;flex:none}
+    .logo strong{font-family:var(--serif);font-style:normal;font-size:21px;font-weight:600;line-height:1}
+    .logo small{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);font-weight:600;margin-top:3px}
+    .nav-links{display:flex;align-items:center;gap:22px}
+    .nav-links a{font-size:15px;font-weight:500;color:#e8eef6}
+    .nav-links a:hover{color:var(--yellow)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;border:1px solid transparent;font-size:14px;font-weight:700;cursor:pointer;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-yellow{background:var(--yellow);color:var(--navy);box-shadow:0 8px 20px rgba(245,197,24,.28)}
+    .btn-yellow:hover{background:#ffd34a}
+    .btn-orange{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(255,138,0,.28)}
+    .btn-orange:hover{background:#ff9a26}
+    .btn-ghost{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .nav-toggle{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+    .nav-toggle span{display:block;width:20px;height:1.6px;background:#fff;margin:5px auto;transition:transform .2s ease,opacity .2s ease}
+    header.open .nav-toggle span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+    header.open .nav-toggle span:nth-child(2){opacity:0}
+    header.open .nav-toggle span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+    @media (max-width:900px){
+      .nav-toggle{display:block}
+      .nav-links{display:none;position:absolute;left:0;right:0;top:var(--header);flex-direction:column;align-items:flex-start;gap:0;background:var(--navy);border-bottom:1px solid rgba(245,197,24,.15);padding:8px var(--gutter) 20px}
+      header.open .nav-links{display:flex}
+      .nav-links a{padding:12px 0;width:100%;border-bottom:1px solid rgba(255,255,255,.08)}
+      .nav-links .btn{margin-top:12px;width:100%}
+    }
+    .hero{position:relative;isolation:isolate;min-height:min(90vh,820px);color:#fff;display:flex;align-items:center;padding:120px 0 90px}
+    .hero-bg{position:absolute;inset:0;z-index:-1}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,31,58,.88) 0%,rgba(11,31,58,.62) 48%,rgba(11,31,58,.28) 100%)}
+    .hero h1{font-size:clamp(40px,7vw,80px);line-height:1.04;font-weight:600;max-width:13ch;margin:0 0 16px}
+    .hero p{max-width:34em;font-size:clamp(17px,2vw,20px);color:#e8eef6;margin-bottom:28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    section{padding:88px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+    .section-head h2{font-size:clamp(28px,4vw,44px)}
+    .price-note{font-size:13px;color:var(--muted);background:#fff;display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+    .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .cat{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 30px rgba(11,31,58,.05);display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+    .cat:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,31,58,.1)}
+    .cat img{width:100%;height:200px;object-fit:cover}
+    .cat-body{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+    .badge{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:var(--navy);color:var(--yellow);font-family:var(--serif);font-style:normal;font-size:26px;font-weight:700;margin-bottom:10px}
+    .cat h3{font-size:26px;margin-bottom:8px}
+    .cat ul{margin:10px 0 16px 18px;color:var(--muted);flex:1}
+    .cat .price{font-weight:700;color:var(--navy);font-size:22px;margin-top:auto}
+    .cat .price small{font-weight:400;font-size:14px;color:var(--muted)}
+    @media (max-width:900px){.cats{grid-template-columns:1fr}}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 18px;position:relative}
+    .step-num{font-family:var(--serif);font-style:normal;font-size:42px;color:var(--yellow);line-height:1;background:var(--navy);width:56px;height:56px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px}
+    .step h3{font-size:22px;margin-bottom:8px}
+    .step p{color:var(--muted);font-size:15px}
+    @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.steps{grid-template-columns:1fr}}
+    .table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line);background:#fff}
+    table{width:100%;border-collapse:collapse;min-width:560px}
+    th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+    th{background:var(--navy);color:#fff;font-weight:600}
+    tr:last-child td{border-bottom:0}
+    tr:hover td{background:#fff8e6}
+    .fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .fleet article{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    .fleet img{width:100%;height:200px;object-fit:cover}
+    .fleet div{padding:16px 18px 20px}
+    .fleet h3{font-size:22px}
+    .fleet p{color:var(--muted);font-size:15px}
+    @media (max-width:800px){.fleet{grid-template-columns:1fr}}
+    .people{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .person{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-align:left}
+    .person img{width:100%;height:260px;object-fit:cover;object-position:center top}
+    .person div{padding:16px 18px 20px}
+    @media (max-width:800px){.people{grid-template-columns:1fr}}
+    .faq{display:flex;flex-direction:column;gap:10px}
+    .faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:4px 18px}
+    .faq summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:var(--orange);font-weight:700}
+    .faq details[open] summary::after{content:"–"}
+    .faq details p{color:var(--muted);padding:0 0 16px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+    .review-top{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .review img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+    .stars{color:var(--orange);letter-spacing:1px}
+    @media (max-width:800px){.reviews{grid-template-columns:1fr}}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}
+    .contact-card{background:var(--navy);color:#e8eef6;border-radius:24px;padding:32px}
+    .contact-card h2{color:#fff;font-size:36px;margin-bottom:12px}
+    .contact-card a{color:#fff}
+    .chat-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .btn-viber{background:#7360f2;color:#fff}
+    .btn-wa{background:#25D366;color:#0b1f14}
+    .form-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px}
+    .field label{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 14px}
+    .form-grid{display:grid;gap:14px}
+    .thanks{display:none;background:#fff6d6;border-radius:18px;padding:22px;color:var(--navy)}
+    .thanks.show{display:block}
+    @media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
+    footer{background:var(--navy);color:#c9d3e0;padding:48px 0 32px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+    .footer-grid a:hover{color:var(--yellow)}
+    .demo-credit{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:14px}
+    .demo-credit a{color:var(--yellow);text-decoration:underline;text-underline-offset:3px}
+    @media (max-width:700px){.footer-grid{grid-template-columns:1fr}}
+    .band{background:var(--navy);color:#fff}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none;transition:none}
+      .btn:hover,.cat:hover{transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#sadrzaj">Preskočite na sadržaj</a>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#vrh" aria-label="Auto-škola Volan, početna">
+        <svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#F5C518"/><circle cx="18" cy="18" r="10" fill="none" stroke="#0B1F3A" stroke-width="2.2"/><circle cx="18" cy="18" r="2.4" fill="#0B1F3A"/><path d="M18 8.4v3.4M18 24.2v3.4M8.4 18h3.4M24.2 18h3.4" stroke="#0B1F3A" stroke-width="1.8" stroke-linecap="round"/><path d="M18 18l5.4-2.4" stroke="#FF8A00" stroke-width="2" stroke-linecap="round"/></svg>
+        <span><strong>Auto-škola Volan</strong><small>Beograd</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Meni">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Glavni meni">
+        <a href="#kategorije">Kategorije</a>
+        <a href="#kako">Kako teče obuka</a>
+        <a href="#raspored">Raspored</a>
+        <a href="#park">Vozni park</a>
+        <a href="#instruktori">Instruktori</a>
+        <a href="#pitanja">Pitanja</a>
+        <a class="btn btn-yellow" href="#prijava">Prijavi se</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="sadrzaj">
+    <section class="hero" id="vrh" aria-labelledby="hero-title">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1800&q=80" alt="Pogled kroz vetrobran na otvoren put tokom vožnje" width="1800" height="1200">
+      </div>
+      <div class="wrap">
+        <p class="eyebrow">Beograd · kategorije B, A i C</p>
+        <h1 id="hero-title">Vožnja se uči spokojno, korak po korak</h1>
+        <p>Teorija u malim grupama, prva pomoć, časovi vožnje sa strpljivim instruktorima i podrška do ispita. Počnite kad vama odgovara.</p>
+        <div class="hero-actions">
+          <a class="btn btn-yellow" href="#prijava">Prijavi se</a>
+          <a class="btn btn-ghost" href="#kategorije">Pogledajte kategorije</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="kategorije">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Kategorije i paketi</p>
+            <h2>Izaberite svoju kategoriju</h2>
+          </div>
+          <p class="price-note">Cene su primer</p>
+        </div>
+        <div class="cats">
+          <article class="cat reveal">
+            <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80" alt="Putnički automobil spreman za čas vožnje" width="1200" height="800">
+            <div class="cat-body">
+              <span class="badge">B</span>
+              <h3>Kategorija B</h3>
+              <p>Obuka za putnički automobil. Najčešći izbor za prvu vozačku dozvolu.</p>
+              <ul>
+                <li>Teorijska nastava u grupi</li>
+                <li>Kurs prve pomoći</li>
+                <li>40 časova vožnje</li>
+                <li>Prijava za teoretski i praktični ispit</li>
+                <li>Mogućnost automobila sa automatskim menjačem</li>
+              </ul>
+              <p class="price">89.000 RSD <small>/ paket</small></p>
+            </div>
+          </article>
+          <article class="cat reveal">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80" alt="Motor spreman za obuku kategorije A" width="1200" height="800">
+            <div class="cat-body">
+              <span class="badge">A</span>
+              <h3>Kategorija A</h3>
+              <p>Obuka za motor. Za one koji već imaju iskustvo ili žele da krenu od nule.</p>
+              <ul>
+                <li>Teorija prilagođena motorima</li>
+                <li>Kurs prve pomoći</li>
+                <li>Časovi vožnje na poligonu i u saobraćaju</li>
+                <li>Zaštitna oprema tokom obuke</li>
+                <li>Prijava ispita</li>
+              </ul>
+              <p class="price">62.000 RSD <small>/ paket</small></p>
+            </div>
+          </article>
+          <article class="cat reveal">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80" alt="Kamion za obuku kategorije C" width="1200" height="800">
+            <div class="cat-body">
+              <span class="badge">C</span>
+              <h3>Kategorija C</h3>
+              <p>Obuka za teretno vozilo. Za profesionalnu vožnju i proširenje dozvole.</p>
+              <ul>
+                <li>Teorija za teška vozila</li>
+                <li>Kurs prve pomoći</li>
+                <li>Časovi vožnje na kamionu iz voznog parka</li>
+                <li>Priprema za poligon i saobraćaj</li>
+                <li>Pomoć oko dokumentacije i ispita</li>
+              </ul>
+              <p class="price">129.000 RSD <small>/ paket</small></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="band">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow" style="color:var(--yellow)">Tok obuke</p>
+            <h2 style="color:#fff">Kako izgleda put do ispita</h2>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-num">1</div>
+            <h3>Teorija</h3>
+            <p>Predavanja u učionici, u malim grupama. Prolazimo saobraćajne propise, znakove i situacije sa ispita.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">2</div>
+            <h3>Prva pomoć</h3>
+            <p>Obavezni kurs sa ovlašćenim predavačem. Termin usklađujemo sa vašom teorijom, da ne visite između koraka.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">3</div>
+            <h3>Vožnja</h3>
+            <p>Časovi sa instruktorom, u vašem tempu. Počinjemo mirnije, pa prelazimo na kružne tokove, parking i grad.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">4</div>
+            <h3>Ispit</h3>
+            <p>Pomažemo oko prijave, rezervišemo termin i pre ispita odradimo ponavljanje, da znate šta vas čeka.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="raspored">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Raspored</p>
+            <h2>Termini teorijske nastave</h2>
+            <p class="lede" style="margin-top:10px">Grupe kreću više puta mesečno. Raspored je primer — na pravom sajtu termini se ažuriraju svake nedelje.</p>
+          </div>
+        </div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr><th>Dan</th><th>Vreme</th><th>Grupa</th><th>Kategorija</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ponedeljak</td><td>18:00–20:30</td><td>Večernja A</td><td>B</td></tr>
+              <tr><td>Sreda</td><td>18:00–20:30</td><td>Večernja A</td><td>B</td></tr>
+              <tr><td>Petak</td><td>18:00–20:30</td><td>Večernja A</td><td>B</td></tr>
+              <tr><td>Utorak</td><td>10:00–12:30</td><td>Jutarnja</td><td>B</td></tr>
+              <tr><td>Četvrtak</td><td>10:00–12:30</td><td>Jutarnja</td><td>B</td></tr>
+              <tr><td>Ponedeljak</td><td>17:00–19:00</td><td>Motori</td><td>A</td></tr>
+              <tr><td>Subota</td><td>09:00–13:00</td><td>Vikend</td><td>B i C</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="park" style="background:#efece4">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Vozni park</p>
+            <h2>Vozila na kojima vežbate</h2>
+          </div>
+        </div>
+        <div class="fleet">
+          <article class="reveal">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=80" alt="Beli gradski automobil na putu" width="1200" height="800">
+            <div>
+              <h3>Putnički automobili</h3>
+              <p>Za kategoriju B: Toyota Yaris i Škoda Fabia, sa ručnim menjačem, plus jedan automobil sa automatskim menjačem.</p>
+            </div>
+          </article>
+          <article class="reveal">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80" alt="Motor iz voznog parka auto-škole" width="1200" height="800">
+            <div>
+              <h3>Motor</h3>
+              <p>Za kategoriju A: Yamaha za poligon i vožnju u gradu. Kaciga i zaštitna oprema su uključeni tokom časa.</p>
+            </div>
+          </article>
+          <article class="reveal">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80" alt="Kamion iz voznog parka za kategoriju C" width="1200" height="800">
+            <div>
+              <h3>Kamion</h3>
+              <p>Za kategoriju C: MAN TGL, pregledan i spreman za obuku. Instruktor je u kabini sa vama na svakom času.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="instruktori">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Tim</p>
+            <h2>Instruktori koji ne žure</h2>
+          </div>
+        </div>
+        <div class="people">
+          <article class="person reveal">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80" alt="Portret instruktora Marka Jovanovića" width="800" height="800">
+            <div>
+              <h3>Marko Jovanović</h3>
+              <p>Kategorija B · 12 godina iskustva. Strpljiv sa kandidatima koji prvi put sede za volanom.</p>
+            </div>
+          </article>
+          <article class="person reveal">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Portret instruktorice Jelene Stanković" width="800" height="800">
+            <div>
+              <h3>Jelena Stanković</h3>
+              <p>Kategorije B i A. Jasna objašnjenja, miran pristup i dobra priprema za gradsku vožnju.</p>
+            </div>
+          </article>
+          <article class="person reveal">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Portret instruktora Nikole Ilića" width="800" height="800">
+            <div>
+              <h3>Nikola Ilić</h3>
+              <p>Kategorija C. Objašnjava merila, mrtve uglove i poligon bez žurbe, jezikom koji se pamti.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitanja" style="background:#efece4">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Česta pitanja</p>
+            <h2>Pre nego što se prijavite</h2>
+          </div>
+        </div>
+        <div class="faq reveal">
+          <details open>
+            <summary>Koliko traje obuka za kategoriju B?</summary>
+            <p>Obično 6 do 10 nedelja, u zavisnosti od vašeg ritma i slobodnih termina. Teoriju možete da pratite uveče ili vikendom, a časove vožnje zakazujemo oko vašeg posla ili škole.</p>
+          </details>
+          <details>
+            <summary>Mogu li da plaćam na rate?</summary>
+            <p>Da, paket može da se podeli na rate. Tačan broj rata i avans dogovarate pri upisu. Iznosi na sajtu su primer.</p>
+          </details>
+          <details>
+            <summary>Šta ako ne položim ispit iz prve?</summary>
+            <p>Dogovaramo dodatne časove i novu prijavu. Instruktor prolazi sa vama tačke na kojima ste zapeli, da drugi pokušaj bude mirniji.</p>
+          </details>
+          <details>
+            <summary>Imate li automobil sa automatskim menjačem?</summary>
+            <p>Imamo. Recite to pri prijavi, da vas odmah rasporedimo na odgovarajuće vozilo i instruktorov termin.</p>
+          </details>
+          <details>
+            <summary>Kad mogu da počnem?</summary>
+            <p>Nove grupe kreću više puta mesečno. Ostavićete ime, telefon i kategoriju u formi, pa vam se javljamo sa prvim slobodnim rokom.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="utisci">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Primer utisaka</p>
+            <h2>Kako kandidati opisuju obuku</h2>
+          </div>
+        </div>
+        <div class="reviews">
+          <article class="review reveal">
+            <div class="review-top">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="" width="200" height="200">
+              <div><strong>Ana M.</strong><div>Novi Beograd</div><div class="stars" aria-label="5 od 5">★★★★★</div></div>
+            </div>
+            <p>„Bojala sam se vožnje u gradu, a Jelena me je provela kroz sve bez nervoze. Ispit sam položila iz prve."</p>
+          </article>
+          <article class="review reveal">
+            <div class="review-top">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="" width="200" height="200">
+              <div><strong>Stefan K.</strong><div>Zemun</div><div class="stars" aria-label="5 od 5">★★★★★</div></div>
+            </div>
+            <p>„Teorija je bila jasna, a časovi su krećali tačno. Marko nije žurio i zato sam za volanom bio opušteniji."</p>
+          </article>
+          <article class="review reveal">
+            <div class="review-top">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" alt="" width="200" height="200">
+              <div><strong>Dejan L.</strong><div>Voždovac</div><div class="stars" aria-label="5 od 5">★★★★★</div></div>
+            </div>
+            <p>„Kategoriju C sam radio posle posla. Termini su se uklopili, a kamion i instruktor su ostavili ozbiljan utisak."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prijava">
+      <div class="wrap contact-grid">
+        <div class="contact-card reveal">
+          <p class="eyebrow" style="color:var(--yellow)">Kontakt</p>
+          <h2>Prijavi se</h2>
+          <p>Pozovite nas, pišite na Viber ili WhatsApp, ili ostavite kratku prijavu. Forma na demo sajtu ne šalje podatke — na pravom sajtu prijave stižu direktno školi.</p>
+          <p style="margin-top:20px"><strong>Telefon</strong><br><a href="tel:+381605550456">+381 60 555 0456</a></p>
+          <p style="margin-top:12px"><strong>Mejl</strong><br><a href="mailto:info@autoskolavolan.rs">info@autoskolavolan.rs</a></p>
+          <p style="margin-top:12px"><strong>Adresa</strong><br>Bulevar Zorana Đinđića 12, Novi Beograd</p>
+          <p style="margin-top:12px"><strong>Radno vreme</strong><br>Pon–pet 09–19 · Sub 09–14</p>
+          <div class="chat-btns">
+            <a class="btn btn-viber" href="viber://chat?number=%2B381605550456">Viber</a>
+            <a class="btn btn-wa" href="https://wa.me/381605550456">WhatsApp</a>
+          </div>
+        </div>
+        <div class="form-card reveal">
+          <h3 style="font-size:28px;margin-bottom:8px">Prijava za obuku</h3>
+          <p style="color:var(--muted);margin-bottom:18px">Forma je demo i ne šalje podatke.</p>
+          <form id="signup-form" action="#" method="post">
+            <div class="form-grid" id="form-panel">
+              <div class="field"><label for="ime">Ime i prezime</label><input id="ime" name="ime" required autocomplete="name"></div>
+              <div class="field"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel" required autocomplete="tel"></div>
+              <div class="field"><label for="kategorija">Kategorija</label>
+                <select id="kategorija" name="kategorija" required>
+                  <option value="">Izaberite kategoriju</option>
+                  <option value="B">Kategorija B</option>
+                  <option value="A">Kategorija A</option>
+                  <option value="C">Kategorija C</option>
+                </select>
+              </div>
+              <button class="btn btn-yellow" type="submit">Prijavi se</button>
+            </div>
+          </form>
+          <div class="thanks" id="thanks" tabindex="-1">Hvala vam! Ovo je demo forma — prijava nije poslata. Na pravom sajtu škola vas zove ili piše na Viber istog dana.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <p class="serif" style="font-size:28px;color:#fff">Auto-škola Volan</p>
+        <p>Obuka za kategorije B, A i C u Beogradu.</p>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#fff;margin-bottom:8px">Na stranici</p>
+        <p><a href="#kategorije">Kategorije</a><br><a href="#kako">Tok obuke</a><br><a href="#raspored">Raspored</a><br><a href="#park">Vozni park</a><br><a href="#prijava">Prijava</a></p>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#fff;margin-bottom:8px">Napomena</p>
+        <p>Cene, utisci, adresa i fotografije su primer. Fotografije su stock snimci.</p>
+      </div>
+    </div>
+    <div class="wrap demo-credit">Demo sajt: <a href="https://webglowstudio.github.io/Webglowstudioportfolio/">WebGlow Studio</a></div>
+  </footer>
+
+  <script>
+  (function(){
+    var header=document.querySelector("header");
+    var toggle=document.querySelector(".nav-toggle");
+    if(toggle){
+      toggle.addEventListener("click",function(){
+        var open=header.classList.toggle("open");
+        toggle.setAttribute("aria-expanded",open?"true":"false");
+      });
+    }
+    document.querySelectorAll(".nav-links a").forEach(function(a){
+      a.addEventListener("click",function(){
+        header.classList.remove("open");
+        if(toggle) toggle.setAttribute("aria-expanded","false");
+      });
+    });
+
+    var form=document.getElementById("signup-form");
+    var panel=document.getElementById("form-panel");
+    var thanks=document.getElementById("thanks");
+    if(form){
+      form.addEventListener("submit",function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){form.reportValidity();return;}
+        panel.hidden=true;
+        thanks.classList.add("show");
+        thanks.focus();
+      });
+    }
+
+    document.querySelectorAll(".faq summary").forEach(function(s){
+      s.addEventListener("click",function(){
+        document.querySelectorAll(".faq details").forEach(function(d){
+          if(d!==s.parentElement) d.removeAttribute("open");
+        });
+      });
+    });
+
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+      },{threshold:.12});
+      document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+    } else {
+      document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in");});
+    }
+  })();
+  </script>
+</body>
+</html>
